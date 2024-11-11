@@ -14,6 +14,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 })
 
+
 const storage = multer.diskStorage({
   destination: function (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) {
     cb(null, './uploads')
@@ -40,6 +41,7 @@ import connectDB from "./db/connect"
 connectDB();
 
 const Image: Model<MyDocument> = mongoose.model<MyDocument>('Image', MySchema)
+
 
 app.post('/', upload.single('myfile'), async (req: Request, res: Response, next: NextFunction) => {
   try {
