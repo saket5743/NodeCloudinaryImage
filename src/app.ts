@@ -5,6 +5,7 @@ import multer from 'multer'
 import mongoose, { Schema, Document, Model } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid'
 import { v2 as cloudinary } from 'cloudinary';
+import connectDB from "./db/connect"
 const app = express();
 dotenv.config();
 
@@ -35,8 +36,6 @@ interface MyDocument extends Document {
 const MySchema = new Schema<MyDocument>({
   Image_Url: { type: String, required: true },
 });
-
-import connectDB from "./db/connect"
 
 connectDB();
 
